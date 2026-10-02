@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cassey Allyah D. Dejumo | Portfolio & Plushies</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --primary: #40556f;
+      --secondary: #c89d7c;
+      --accent: #dbb599;
+      --bg-light: #fdfaf7;
+      --card-bg: #ffffff;
+      --text-dark: #333333;
+      --text-muted: #666666;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background-color: var(--bg-light);
+      color: var(--text-dark);
+      line-height: 1.6;
+    }
+
+    /* --- Navigation --- */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+
+    nav {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+    }
+
+    .logo {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--primary);
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 1.5rem;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text-dark);
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: var(--secondary);
+    }
+
+    .cart-btn {
+      background-color: var(--primary);
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      cursor: pointer;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    /* --- Hero Section --- */
+    .hero {
+      text-align: center;
+      padding: 4rem 1.5rem;
+      background: linear-gradient(135deg, #fdfaf7 0%, #f4e8df 100%);
+    }
+
+    .hero-avatar {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid var(--secondary);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      margin-bottom: 1rem;
+    }
+
+    .hero h1 {
+      color: var(--primary);
+      font-size: 2.2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .hero p {
+      font-style: italic;
+      color: var(--secondary);
+      font-size: 1.1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .cta-btns {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+    }
+
+    .btn {
+      padding: 0.75rem 1.5rem;
+      border-radius: 25px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: transform 0.2s, background-color 0.2s;
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-primary {
+      background-color: var(--secondary);
+      color: white;
+    }
+
+    .btn-outline {
+      border: 2px solid var(--secondary);
+      color: var(--secondary);
+      background: transparent;
+    }
+
+    /* --- Common Container --- */
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 1.8rem;
+      color: var(--primary);
+      margin-bottom: 2rem;
+      position: relative;
+    }
+
+    .section-title::after {
+      content: '';
+      display: block;
+      width: 50px;
+      height: 3px;
+      background: var(--secondary);
+      margin: 0.5rem auto 0;
+      border-radius: 2px;
+    }
+
+    /* --- Portfolio Sections --- */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .card {
+      background: var(--card-bg);
+      padding: 1.8rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      border-top: 4px solid var(--secondary);
+    }
+
+    .card h3 {
+      color: var(--primary);
+      margin-bottom: 1rem;
+    }
+
+    .card ul {
+      list-style-type: none;
+    }
+
+    .card ul li {
+      margin-bottom: 0.8rem;
+      padding-left: 1.2rem;
+      position: relative;
+    }
+
+    .card ul li::before {
+      content: '🧸';
+      position: absolute;
+      left: 0;
+      font-size: 0.8rem;
+    }
+
+    /* Timeline */
+    .timeline-item {
+      margin-bottom: 1rem;
+      padding-left: 1rem;
+      border-left: 2px solid var(--secondary);
+    }
+
+    .timeline-item span {
+      font-weight: bold;
+      color: var(--secondary);
+    }
+
+    /* --- Shop Section --- */
+    .shop-section {
+      background-color: #f7f2ee;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .product-card {
+      background: var(--card-bg);
+      border-radius: 12px;
+      padding: 1rem;
+      text-align: center;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+      transition: transform 0.2s;
+    }
+
+    .product-card:hover {
+      transform: translateY(-50px);
+      transform: translateY(-5px);
+    }
+
+    .product-card img {
+      width: 100%;
+      height: 140px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-bottom: 0.8rem;
+    }
+
+    .product-card h4 {
+      color: var(--primary);
+      margin-bottom: 0.3rem;
+    }
+
+    .product-card p {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 0.5rem;
+    }
+
+    .price {
+      font-size: 1.1rem;
+      font-weight: bold;
+      color: var(--secondary);
+      margin-bottom: 0.8rem;
+    }
+
+    .buy-btn {
+      width: 100%;
+      background-color: var(--primary);
+      color: white;
+      border: none;
+      padding: 0.5rem;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: background-color 0.2s;
+    }
+
+    .buy-btn:hover {
+      background-color: #314257;
+    }
+
+    /* --- Contact & Footer --- */
+    .contact-container {
+      text-align: center;
+    }
+
+    .contact-info {
+      margin-bottom: 1.5rem;
+    }
+
+    footer {
+      background: var(--primary);
+      color: white;
+      text-align: center;
+      padding: 1.5rem;
+      font-size: 0.9rem;
+    }
+
+    /* --- Toast Notification --- */
+    #toast {
+      visibility: hidden;
+      min-width: 250px;
+      background-color: var(--primary);
+      color: #fff;
+      text-align: center;
+      border-radius: 8px;
+      padding: 12px;
+      position: fixed;
+      z-index: 1000;
+      right: 30px;
+      bottom: 30px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+
+    #toast.show {
+      visibility: visible;
+      animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    }
+
+    @keyframes fadein {
+      from {bottom: 0; opacity: 0;}
+      to {bottom: 30px; opacity: 1;}
+    }
+
+    @keyframes fadeout {
+      from {bottom: 30px; opacity: 1;}
+      to {bottom: 0; opacity: 0;}
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <header>
+    <nav>
+      <a href="#" class="logo">🧸 Cassey Allyah</a>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#portfolio">Portfolio</a></li>
+        <li><a href="#products">Plushie Shop</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <button class="cart-btn" onclick="showCartInfo()">
+        🛒 Cart <span id="cart-count">0</span>
+      </button>
+    </nav>
+  </header>
+
+  <!-- Hero Banner -->
+  <section class="hero">
+    <img src="https://images.unsplash.com/photo-1559454403-b8fb88521f11?w=400" alt="Cassey Allyah Avatar" class="hero-avatar" />
+    <h1>Cassey Allyah D. Dejumo</h1>
+    <p>"Creating ideas, turning them into something beautiful"</p>
+    <div class="cta-btns">
+      <a href="#products" class="btn btn-primary">Shop Plushies</a>
+      <a href="#portfolio" class="btn btn-outline">View Portfolio</a>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="container">
+    <h2 class="section-title">About Me 🧸</h2>
+    <div class="grid-2">
+      <div class="card">
+        <h3>Background</h3>
+        <p>I am a 1st Year <strong>BS Marketing (BS MKT)</strong> student at Mapúa University, passionate about creative concepts, business strategies, and brand presentation.</p>
+      </div>
+      <div class="card">
+        <h3>Skills 🧸</h3>
+        <ul>
+          <li>Crafting and handcrafted product design</li>
+          <li>Basic media editing and content styling</li>
+          <li>Marketing & OSHA safety management awareness</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Portfolio Section -->
+  <section id="portfolio" class="container">
+    <h2 class="section-title">Journey & Achievements 🧸</h2>
+    <div class="grid-2">
+      <div class="card">
+        <h3>Activities & Events</h3>
+        <ul>
+          <li>Career guidance and employment coaching</li>
+          <li>OSHA work immersion (Safety focus)</li>
+          <li>Gender and development seminar</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>Achievements & Awards</h3>
+        <ul>
+          <li>With Honors (Grade 7 & Grade 8)</li>
+          <li>Grade 9 Achievers Award</li>
+          <li>Table Tennis Tournament – 2nd Place 🥈</li>
+        </ul>
+      </div>
+
+      <div class="card" style="grid-column: 1 / -1;">
+        <h3>Journey & Experience</h3>
+        <div class="timeline-item">
+          <span>2024:</span> Began Senior High School under the Accountancy, Business, and Management (ABM) strand focusing on business fundamentals.
+        </div>
+        <div class="timeline-item">
+          <span>2026:</span> Completed 3rd-semester Work Immersion training focused on OSHA safety protocols and workplace procedures.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Plushie Store Section -->
+  <section id="products" class="shop-section">
+    <div class="container">
+      <h2 class="section-title">Allyah's Plushies Shop 🧸</h2>
+      <div class="product-grid">
+        
+        <!-- Product 1 -->
+        <div class="product-card">
+          <img src="https://images.unsplash.com/photo-1559454403-b8fb88521f11?w=300" alt="Teddy Bear" />
+          <h4>Teddy Bear</h4>
+          <p>Soft brown bear</p>
+          <div class="price">₱450</div>
+          <button class="buy-btn" onclick="addToCart('Teddy Bear')">Add to Cart</button>
+        </div>
+
+        <!-- Product 2 -->
+        <div class="product-card">
+          <img src="https://images.unsplash.com/photo-1563241527-3004b7be0ffd?w=300" alt="Bunny Plush" />
+          <h4>Bunny Plush</h4>
+          <p>Fluffy white rabbit</p>
+          <div class="price">₱380</div>
+          <button class="buy-btn" onclick="addToCart('Bunny Plush')">Add to Cart</button>
+        </div>
+
+        <!-- Product 3 -->
+        <div class="product-card">
+          <img src="https://images.unsplash.com/photo-1582845512747-e42001c95638?w=300" alt="Panda Plush" />
+          <h4>Panda Plush</h4>
+          <p>Cute black & white panda</p>
+          <div class="price">₱520</div>
+          <button class="buy-btn" onclick="addToCart('Panda Plush')">Add to Cart</button>
+        </div>
+
+        <!-- Product 4 -->
+        <div class="product-card">
+          <img src="https://images.unsplash.com/photo-1533738363-b7f9aef128ce?w=300" alt="Kitty Plush" />
+          <h4>Kitty Plush</h4>
+          <p>Adorable pink cat</p>
+          <div class="price">₱350</div>
+          <button class="buy-btn" onclick="addToCart('Kitty Plush')">Add to Cart</button>
+        </div>
+
+        <!-- Product 5 -->
+        <div class="product-card">
+          <img src="https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=300" alt="Dino Plush" />
+          <h4>Dino Plush</h4>
+          <p>Soft green dinosaur</p>
+          <div class="price">₱480</div>
+          <button class="buy-btn" onclick="addToCart('Dino Plush')">Add to Cart</button>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="container contact-container">
+    <h2 class="section-title">Get in Touch 🧸</h2>
+    <div class="contact-info">
+      <p>📧 Email: <a href="mailto:casseyallyahdejumo@gmail.com">casseyallyahdejumo@gmail.com</a> | <a href="mailto:allyah@plushies.ph">allyah@plushies.ph</a></p>
+      <p>📞 Phone: 0969-052-3619</p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2026 Cassey Allyah D. Dejumo | Allyah's Plushies. All Rights Reserved.</p>
+  </footer>
+
+  <!-- Toast Notification element -->
+  <div id="toast">Item added to cart!</div>
+
+  <script>
+    let cartCount = 0;
+
+    function addToCart(itemName) {
+      cartCount++;
+      document.getElementById('cart-count').innerText = cartCount;
+      showToast(`Added ${itemName} to your cart! 🧸`);
+    }
+
+    function showCartInfo() {
+      if (cartCount === 0) {
+        showToast("Your cart is currently empty!");
+      } else {
+        showToast(`You have ${cartCount} plushie(s) in your cart!`);
+      }
+    }
+
+    function showToast(message) {
+      const toast = document.getElementById("toast");
+      toast.innerText = message;
+      toast.className = "show";
+      setTimeout(function() {
+        toast.className = toast.className.replace("show", "");
+      }, 3000);
+    }
+  </script>
+
+</body>
+</html>
